@@ -1556,7 +1556,7 @@ frappe.views.Workspace = class customWorkspace {
                 // console.log("this is from python " ,r.message)
                 var body = r.message[0]
                 // console.log(r.message[1])
-                $(frappe.render_template(body)).appendTo(me.page.main)
+                $(body).appendTo(me.page.main)
 				$('.app_btn').click(function(e) {
 					// alert( "Handler for .click() called." );
 					// console.log(e.currentTarget.id)
