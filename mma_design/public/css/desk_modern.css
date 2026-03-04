@@ -229,64 +229,176 @@ body {
 
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   LIST VIEW
+   LIST VIEW — Modern Card Table
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Wrapper: card container for entire list */
 .frappe-list {
-  background: transparent !important;
-}
-
-.frappe-list .list-row-container {
-  background: var(--mma-surface);
-  border: 1px solid var(--mma-border-light);
-  border-radius: var(--mma-radius) !important;
-  margin-bottom: 4px;
-  transition: all var(--mma-transition);
-}
-
-.frappe-list .list-row-container:hover {
-  border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: var(--mma-shadow);
-  transform: translateY(-1px);
-}
-
-.frappe-list .list-row-container .list-row {
-  border: none !important;
-}
-
-.frappe-list .list-row-head {
   background: var(--mma-surface) !important;
-  border: 1px solid var(--mma-border-light);
-  border-radius: var(--mma-radius) !important;
-  margin-bottom: 8px;
+  border: 1px solid var(--mma-border-light) !important;
+  border-radius: var(--mma-radius-lg) !important;
+  box-shadow: var(--mma-shadow) !important;
+  overflow: hidden !important;
+  margin-top: 4px;
+}
+
+/* ── Table Header ── */
+.frappe-list .list-row-head {
+  background: var(--mma-surface-hover) !important;
+  border: none !important;
+  border-bottom: 2px solid var(--mma-border) !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
 }
 
 .frappe-list .list-row-head .list-header-subject,
 .frappe-list .list-row-head .list-row-col {
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   color: var(--mma-text-muted) !important;
-  font-size: 10.5px !important;
+  font-size: 10px !important;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
 }
 
+/* ── Table Rows ── */
+.frappe-list .list-row-container {
+  background: var(--mma-surface) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--mma-border-light) !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  transition: background var(--mma-transition);
+}
+
+.frappe-list .list-row-container:last-child {
+  border-bottom: none !important;
+}
+
+.frappe-list .list-row-container:hover {
+  background: var(--mma-surface-hover) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.frappe-list .list-row-container .list-row {
+  border: none !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  min-height: 48px;
+  align-items: center;
+}
+
+/* Row name link */
 .frappe-list .level-left .list-row--col .ellipsis a {
   color: var(--mma-text) !important;
   font-weight: 600;
+  font-size: 13.5px !important;
   transition: color var(--mma-transition);
+  text-decoration: none !important;
 }
 
 .frappe-list .level-left .list-row--col .ellipsis a:hover {
   color: var(--mma-accent) !important;
 }
 
-/* Result count / paging */
-.list-paging-area .btn-group .btn {
+/* Row cell text */
+.frappe-list .list-row--col {
+  font-size: 13px !important;
+  color: var(--mma-text) !important;
+}
+
+.frappe-list .list-row--col .text-muted {
+  color: var(--mma-text-muted) !important;
+  font-size: 12px !important;
+}
+
+/* Like / comment icons in row */
+.frappe-list .list-row--col .comment-count,
+.frappe-list .list-row--col .like-action {
+  color: var(--mma-text-light) !important;
+  font-size: 12px !important;
+  transition: color var(--mma-transition);
+}
+
+.frappe-list .list-row--col .like-action:hover,
+.frappe-list .list-row--col .comment-count:hover {
+  color: var(--mma-accent) !important;
+}
+
+/* Checkbox in list */
+.frappe-list .list-row-checkbox {
+  accent-color: var(--mma-btn) !important;
+}
+
+/* Selected row highlight */
+.frappe-list .list-row-container.selected {
+  background: rgba(15, 23, 42, 0.03) !important;
+}
+
+/* ── Filter Bar ── */
+.filter-section {
+  padding: 8px 0 !important;
+}
+
+.filter-section .filter-button,
+.sort-selector .btn,
+.filter-section .btn {
   border-radius: var(--mma-radius-sm) !important;
   font-size: 12px !important;
   font-weight: 600 !important;
+  border-color: var(--mma-border) !important;
+  color: var(--mma-text-muted) !important;
+  background: var(--mma-surface) !important;
+  transition: all var(--mma-transition);
+  padding: 5px 12px !important;
+}
+
+.filter-section .filter-button:hover,
+.sort-selector .btn:hover,
+.filter-section .btn:hover {
+  background: var(--mma-btn) !important;
+  color: var(--mma-btn-text) !important;
+  border-color: var(--mma-btn) !important;
+}
+
+/* Active filter tags */
+.active-tag-filters .btn-group .btn {
+  border-radius: 20px !important;
+  background: var(--mma-btn) !important;
+  color: var(--mma-btn-text) !important;
+  border-color: var(--mma-btn) !important;
+  font-weight: 600;
+  font-size: 11px !important;
+  padding: 3px 12px !important;
+}
+
+/* Filter input fields */
+.filter-box .frappe-control input,
+.filter-box .frappe-control select {
+  border-radius: var(--mma-radius-sm) !important;
+  border: 1.5px solid var(--mma-border) !important;
+  font-size: 12px !important;
+}
+
+/* ── Result Count & Paging ── */
+.list-paging-area {
+  padding: 10px 15px !important;
+  border-top: 1px solid var(--mma-border-light) !important;
+  background: var(--mma-surface-hover) !important;
+}
+
+.list-paging-area .btn-group .btn {
+  border-radius: var(--mma-radius-sm) !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
   color: var(--mma-text-muted) !important;
   border-color: var(--mma-border) !important;
   background: var(--mma-surface) !important;
+  padding: 4px 12px !important;
+  transition: all var(--mma-transition);
 }
 
 .list-paging-area .btn-group .btn.active,
@@ -296,29 +408,63 @@ body {
   border-color: var(--mma-btn) !important;
 }
 
-/* Filters */
-.filter-section .filter-button,
-.sort-selector .btn {
+.list-paging-area .list-count {
+  font-size: 12px !important;
+  color: var(--mma-text-muted) !important;
+  font-weight: 600 !important;
+}
+
+/* ── "N of N" result badge ── */
+.frappe-list .result {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--mma-text-muted) !important;
+}
+
+/* ── Page Head actions row ── */
+.page-head .page-actions {
+  gap: 6px;
+}
+
+.page-head .page-actions .btn {
+  border-radius: var(--mma-radius-sm) !important;
+}
+
+/* ── View switcher (List View / Report / etc) ── */
+.list-view-settings .btn-group .btn,
+.page-head .btn-group .btn {
   border-radius: var(--mma-radius-sm) !important;
   font-size: 12px !important;
-  border-color: var(--mma-border) !important;
+  font-weight: 600 !important;
 }
 
-.active-tag-filters .btn-group .btn {
-  border-radius: 20px !important;
-  background: rgba(15, 23, 42, 0.06) !important;
-  color: var(--mma-text) !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
-  font-weight: 600;
-  font-size: 11px !important;
+/* ── Empty list state ── */
+.frappe-list .no-result {
+  padding: 60px 20px !important;
+  text-align: center;
 }
 
-/* Indicator pills */
+.frappe-list .no-result .msg-box {
+  color: var(--mma-text-muted) !important;
+}
+
+.frappe-list .no-result .btn {
+  background: var(--mma-btn) !important;
+  color: var(--mma-btn-text) !important;
+  border-color: var(--mma-btn) !important;
+  border-radius: var(--mma-radius-sm) !important;
+  font-weight: 600 !important;
+  padding: 8px 20px !important;
+  margin-top: 12px !important;
+}
+
+/* ── Indicator pills ── */
 .indicator-pill {
   border-radius: 20px !important;
   font-size: 11px !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   padding: 3px 10px !important;
+  letter-spacing: 0.02em;
 }
 
 .indicator-pill.green { background: rgba(34, 197, 94, 0.1) !important; color: #16a34a !important; }
