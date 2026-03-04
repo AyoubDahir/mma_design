@@ -220,7 +220,7 @@
   --tile-color: #6366f1;
   width: 110px;
   height: 110px;
-  border-radius: 28px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -323,14 +323,14 @@
 }
 @media (max-width: 900px) {
   .st-lp-grid { grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
-  .st-lp-tile { width: 90px; height: 90px; border-radius: 22px; }
+  .st-lp-tile { width: 90px; height: 90px; border-radius: 50%; }
   .st-lp-tile-icon { font-size: 1.6rem; }
   .st-lp-title { font-size: 1.8rem; }
   .st-lp-username { display: none; }
 }
 @media (max-width: 600px) {
   .st-lp-grid { grid-template-columns: repeat(3, 1fr); gap: 28px 16px; }
-  .st-lp-tile { width: 72px; height: 72px; border-radius: 18px; }
+  .st-lp-tile { width: 72px; height: 72px; border-radius: 50%; }
   .st-lp-tile-icon { font-size: 1.3rem; }
   .st-lp-title { font-size: 1.4rem; margin-bottom: 32px; }
   .st-lp-content { padding: 24px 16px 0; }
