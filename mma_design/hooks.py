@@ -90,7 +90,7 @@ app_include_js = [
 # ------------
 
 # before_install = "mma_design.install.before_install"
-# after_install = "mma_design.install.after_install"
+after_install = "mma_design.install.after_install"
 
 # Uninstallation
 # ------------
