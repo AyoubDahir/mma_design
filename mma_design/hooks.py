@@ -15,19 +15,10 @@ app_include_css = [
     "/assets/mma_design/css/new_design.css" , 
     "/assets/mma_design/css/anfac_retailss.css" , 
     "/assets/mma_design/css/first-page.css" ,
+    "/assets/mma_design/css/desk_modern.css" ,
     '/assets/mma_design/js/lib/tabulator/dist/css/tabulator.min.css',
     '/assets/mma_design/js/lib/tabulator/dist/css/tabulator_simple.min.css',
     '/assets/mma_design/js/lib/fontawesome/css/all.min.css'
-    
-    # '/assets/mma_design/js/lib/tailwind/index.css'
-    # ,
-     
-
-    
-   
-      
-      
-      
         ]
 
 
