@@ -1,0 +1,98 @@
+<div class="st-launchpad">
+  <!-- Header -->
+  <div class="st-lp-header">
+    <div class="st-lp-header-inner">
+      <div class="st-lp-logo">
+        <div class="st-lp-logo-icon">A</div>
+        <span class="st-lp-logo-text">Alihsan</span>
+      </div>
+      <div class="st-lp-search-wrap">
+        <i class="fas fa-search st-lp-search-icon"></i>
+        <input type="text" class="st-lp-search" id="st-module-search" placeholder="Search modules..." autocomplete="off" />
+      </div>
+      <div class="st-lp-user">
+        <span class="st-lp-username">{{frappe.db.get_value("User", frappe.session.user, "full_name")}}</span>
+        <div class="dropdown">
+          <a class="st-lp-avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right st-lp-dropdown">
+            <button class="dropdown-item" onclick="frappe.ui.toolbar.route_to_user()">My Settings</button>
+            <button class="dropdown-item" onclick="frappe.ui.toolbar.clear_cache()">Reload</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" onclick="frappe.app.logout()">Log out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="st-lp-content">
+    <div class="st-lp-inner">
+      <!-- Breadcrumb -->
+      <div class="st-lp-breadcrumb">
+        <span>Alihsan</span>
+        <i class="fas fa-chevron-right"></i>
+        <span class="st-lp-bc-active">Workspace Dashboard</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="st-lp-title">
+        Alihsan <span class="st-lp-title-accent">Launchpad</span>
+      </h1>
+
+      <!-- Module Grid -->
+      <div class="st-lp-grid" id="st-module-grid">
+        {% for d in data %}
+        <div class="st-lp-tile-wrap app_btn" id="{{d.name}}">
+          <div class="st-lp-tile" style="--tile-color:{{d.color}};">
+            <div class="st-lp-tile-shine"></div>
+            <div class="st-lp-tile-icon">
+              <i class="fas {{d.icon}}"></i>
+            </div>
+          </div>
+          <span class="st-lp-tile-label">{{d.label}}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Footer -->
+      <div class="st-lp-footer">
+        <div class="st-lp-footer-inner">
+          <div class="st-lp-footer-left">
+            <p>&copy; 2026 <span class="st-lp-footer-brand">Alihsan Healthcare</span> &middot; All Rights Reserved</p>
+            <div class="st-lp-footer-loc">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Mogadishu - Somalia</span>
+            </div>
+          </div>
+          <div class="st-lp-footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">System Support</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var searchInput = document.getElementById('st-module-search');
+  if(!searchInput) return;
+  searchInput.addEventListener('input', function(){
+    var q = this.value.toLowerCase();
+    var tiles = document.querySelectorAll('.st-lp-tile-wrap');
+    tiles.forEach(function(t){
+      var label = t.querySelector('.st-lp-tile-label');
+      if(label && label.textContent.toLowerCase().indexOf(q) === -1){
+        t.style.display = 'none';
+      } else {
+        t.style.display = '';
+      }
+    });
+  });
+})();
+</script>

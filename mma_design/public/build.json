@@ -1,0 +1,13 @@
+{
+    "js/mma_design.js": [
+		"public/js/new_design.js",
+		"public/js/custom_workspace.js"
+	
+		
+	],
+	"css/mma_design.css": [
+		"public/css/anfac_retail.css"
+		
+		
+	]
+}
