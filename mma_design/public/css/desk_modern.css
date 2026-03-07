@@ -87,6 +87,158 @@ font-size:14px;
   transition: var(--mma-transition);
 }
 
+/* Second menu (page-head) - ensure ALL text and input values are visible on dark background */
+.page-head,
+.header-actions,
+.standard-filter-section,
+.form-head,
+.layout-main .page-head,
+.form-page .page-head {
+  color: #ffffff !important;
+}
+
+/* Higher specificity - exclude dropdowns (they need dark text on light bg) */
+.layout-main .page-head .title,
+.layout-main .page-head .level-item,
+.layout-main .page-head span,
+.layout-main .page-head .btn,
+.layout-main .page-head a,
+.layout-main .page-head .indicator,
+.form-page .page-head .title,
+.form-page .page-head span,
+.form-page .page-head .btn,
+.form-page .page-head a,
+.page-head .level-left .title,
+.page-head .level-left span,
+.page-head .level-left .btn,
+.page-head .level-right span,
+.page-head .level-right .btn {
+  color: #ffffff !important;
+}
+
+/* Dropdowns that open FROM dark bar - light bg + dark text for options */
+.page-head .dropdown-menu,
+.header-actions .dropdown-menu,
+.standard-filter-section .dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid var(--mma-border);
+}
+.page-head .dropdown-menu .dropdown-item,
+.header-actions .dropdown-menu .dropdown-item,
+.standard-filter-section .dropdown-menu .dropdown-item {
+  color: #1f2937 !important;
+}
+.page-head .dropdown-menu .dropdown-item:hover,
+.header-actions .dropdown-menu .dropdown-item:hover,
+.standard-filter-section .dropdown-menu .dropdown-item:hover {
+  background: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
+.page-head .title,
+.page-head .level-item,
+.page-head span,
+.page-head div,
+.page-head label,
+.page-head .breadcrumb,
+.page-head .indicator,
+.page-head .btn,
+.page-head a,
+.header-actions span,
+.header-actions div,
+.header-actions label,
+.header-actions .btn,
+.header-actions a,
+.standard-filter-section span,
+.standard-filter-section div,
+.standard-filter-section label,
+.standard-filter-section .btn,
+.standard-filter-section a,
+.form-head .title,
+.form-head span,
+.form-head .btn,
+.form-head a {
+  color: #ffffff !important;
+}
+
+/* Inputs and form controls in dark bar - white text on semi-transparent background */
+.page-head input,
+.page-head .form-control,
+.page-head select,
+.page-head .awesomplete input,
+.page-head input[type="text"],
+.page-head .control-value,
+.header-actions input,
+.header-actions .form-control,
+.header-actions select,
+.standard-filter-section input,
+.standard-filter-section .form-control,
+.standard-filter-section select,
+.form-head input,
+.form-head .form-control {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+.page-head input::placeholder,
+.page-head .form-control::placeholder,
+.header-actions input::placeholder,
+.standard-filter-section input::placeholder,
+.form-head input::placeholder {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* Override muted/secondary text - was gray, invisible on dark bg */
+.page-head .text-muted,
+.page-head .text-extra-muted,
+.header-actions .text-muted,
+.standard-filter-section .text-muted,
+.form-head .text-muted {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* Force all direct text in dark bar - ellipsis, value, etc. */
+.page-head .ellipsis,
+.page-head .value,
+.page-head .selected-value,
+.page-head .filterable,
+.header-actions .ellipsis,
+.header-actions .value,
+.standard-filter-section .ellipsis,
+.standard-filter-section .value {
+  color: #ffffff !important;
+}
+
+/* Force all text in dark bar - catch any missed elements */
+.page-head .frappe-control,
+.page-head .form-group,
+.page-head [class*="control"],
+.page-head .level-left,
+.page-head .level-right,
+.form-head .frappe-control,
+.form-head .form-group {
+  color: #ffffff !important;
+}
+
+.page-head .frappe-control input,
+.page-head .frappe-control select,
+.page-head .form-group input,
+.page-head .form-group select,
+.form-head input,
+.form-head select {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+/* Link field displayed value in dark bar */
+.page-head .awesomplete input,
+.page-head .link-field .control-value,
+.page-head .frappe-control input {
+  color: #ffffff !important;
+}
+
 
 /* =====================================================
    SIDEBAR
