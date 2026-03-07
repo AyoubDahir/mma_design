@@ -16,8 +16,9 @@
 --mma-text:#1f2937;
 --mma-text-light:#6b7280;
 
---mma-btn:#4f46e5;
+--mma-btn:#111827;
 --mma-btn-text:#ffffff;
+--mma-navbar:#0f172a;
 
 --mma-radius:8px;
 --mma-radius-lg:12px;
@@ -46,17 +47,44 @@ font-size:14px;
 
 
 /* =====================================================
-   NAVBAR
+   NAVBAR (black)
    ===================================================== */
 
-.navbar{
+.navbar,
+.page-head,
+.header-actions,
+.standard-filter-section,
+.header {
+  background: var(--mma-navbar) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: var(--mma-shadow-sm);
+}
 
-background:#ffffff !important;
+.navbar a,
+.navbar .nav-link,
+.page-head a,
+.page-head .btn,
+.header-actions a,
+.header-actions .btn,
+.standard-filter-section a,
+.standard-filter-section .btn,
+.header a,
+.header .nav-link {
+  color: #ffffff !important;
+}
 
-border-bottom:1px solid var(--mma-border);
-
-box-shadow:var(--mma-shadow-sm);
-
+.navbar a:hover,
+.navbar .nav-link:hover,
+.page-head a:hover,
+.page-head .btn:hover,
+.header-actions a:hover,
+.header-actions .btn:hover,
+.header a:hover,
+.header .nav-link:hover {
+  color: rgba(255,255,255,0.9) !important;
+  background: rgba(255,255,255,0.08) !important;
+  border-radius: var(--mma-radius);
+  transition: var(--mma-transition);
 }
 
 
@@ -147,39 +175,52 @@ background:var(--mma-surface);
 
 
 /* =====================================================
-   BUTTONS
+   BUTTONS (black with modern hovers)
    ===================================================== */
 
-.btn-primary{
-
-background:var(--mma-btn) !important;
-
-border:none !important;
-
-color:var(--mma-btn-text) !important;
-
-border-radius:var(--mma-radius);
-
-padding:6px 14px;
-
-font-weight:600;
-
-transition:var(--mma-transition);
-
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-default {
+  background: var(--mma-btn) !important;
+  border: none !important;
+  color: var(--mma-btn-text) !important;
+  border-radius: var(--mma-radius);
+  padding: 6px 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
-.btn-primary:hover{
-
-opacity:0.9;
-
-transform:translateY(-1px);
-
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-default:hover {
+  background: #1f2937 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.btn-secondary{
+.btn:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-default:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
 
-border-radius:var(--mma-radius);
+/* Text/link-style buttons (Add Row, Download, etc.) */
+.btn.btn-sm,
+a.btn-link {
+  background: transparent !important;
+  color: var(--mma-btn) !important;
+  box-shadow: none !important;
+}
 
+.btn.btn-sm:hover,
+a.btn-link:hover {
+  background: rgba(17,24,39,0.08) !important;
+  color: #0f172a !important;
 }
 
 
