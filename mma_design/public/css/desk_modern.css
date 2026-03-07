@@ -289,19 +289,65 @@ vertical-align:middle;
    LINK FIELD / AWESOMPLETE DROPDOWN (fix clipped values)
    ===================================================== */
 
-/* Ensure parent containers don't clip the dropdown */
+/* Ensure parent containers don't clip the dropdown - table, form-grid (NOT grid-body - that would break scroll) */
 .form-layout .table,
+.form-layout .form-grid,
 .grid-row .table,
-.frappe-control .table {
+.frappe-control .table,
+.frappe-control .form-grid,
+.form-grid .table,
+.form-grid tbody {
   overflow: visible !important;
 }
 
-/* Awesomplete dropdown must be visible and above other elements */
+/* Link field wrapper - allow dropdown to escape */
+.frappe-control .form-control,
+.grid-row .form-control,
+.form-layout .form-control {
+  position: relative;
+}
+
+/* Awesomplete dropdown - fixed position escapes scroll containers (grid-body overflow) */
 .awesomplete ul[role="listbox"],
-ul.awesomplete-list {
-  z-index: 9999 !important;
-  overflow: visible !important;
-  position: absolute !important;
+ul.awesomplete-list,
+ul[role="listbox"] {
+  z-index: 99999 !important;
+  overflow-y: auto !important;
+  max-height: 300px;
+  position: fixed !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #fff;
+}
+
+
+/* =====================================================
+   TABLE ALIGNMENT (fix grid head/body sync on scroll)
+   ===================================================== */
+
+/* Keep grid header and body columns aligned when scrolling */
+.form-grid,
+.grid-form {
+  table-layout: fixed;
+}
+
+.form-grid table,
+.grid-form table,
+.grid-head table,
+.grid-body table {
+  table-layout: fixed;
+  width: 100% !important;
+}
+
+/* Prevent layout shift on scroll */
+.grid-head,
+.grid-body {
+  overflow-anchor: auto;
+}
+
+/* Ensure header and body tables stay in sync */
+.grid-head .table,
+.grid-body .table {
+  table-layout: fixed;
 }
 
 
