@@ -216,7 +216,8 @@ background:white;
 
 border-radius:var(--mma-radius);
 
-overflow:hidden;
+/* overflow:visible so Link field / Awesomplete dropdowns are not clipped */
+overflow:visible;
 
 }
 
@@ -240,6 +241,26 @@ color:var(--mma-text-light);
 
 vertical-align:middle;
 
+}
+
+
+/* =====================================================
+   LINK FIELD / AWESOMPLETE DROPDOWN (fix clipped values)
+   ===================================================== */
+
+/* Ensure parent containers don't clip the dropdown */
+.form-layout .table,
+.grid-row .table,
+.frappe-control .table {
+  overflow: visible !important;
+}
+
+/* Awesomplete dropdown must be visible and above other elements */
+.awesomplete ul[role="listbox"],
+ul.awesomplete-list {
+  z-index: 9999 !important;
+  overflow: visible !important;
+  position: absolute !important;
 }
 
 

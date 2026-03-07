@@ -376,7 +376,14 @@
   display: none !important;
 }
 
-/* ── Frappe form tab z-index fix ── */
+/* ── Frappe form tab z-index fix (keep low so tabs don't overlap) ── */
 .form-tabs-list {
   z-index: 0 !important;
+}
+
+/* ── Ensure Link field / Awesomplete dropdowns appear above other elements ── */
+.awesomplete ul[role="listbox"],
+ul.awesomplete-list {
+  z-index: 9999 !important;
+  position: absolute !important;
 }
