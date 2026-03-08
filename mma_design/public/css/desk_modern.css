@@ -239,6 +239,134 @@ font-size:14px;
   color: #ffffff !important;
 }
 
+/* =====================================================
+   DROPDOWNS & MODALS - must have dark text on light bg
+   (overrides dark-bar rules that would make them invisible)
+   ===================================================== */
+
+/* All dropdown menus - dark text on light background */
+.dropdown-menu,
+.dropdown-menu *,
+.dropdown-menu a,
+.dropdown-menu .dropdown-item,
+.dropdown-menu .dropdown-item a,
+.dropdown-menu .btn,
+.dropdown-menu .btn a,
+.dropdown-item,
+.dropdown-item a {
+  color: #1f2937 !important;
+  background-color: transparent !important;
+}
+.dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid var(--mma-border);
+}
+.dropdown-menu .dropdown-item:hover,
+.dropdown-item:hover {
+  background: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+.dropdown-menu .dropdown-divider {
+  border-color: var(--mma-border);
+  background: transparent !important;
+}
+
+/* HIGH specificity - beat .page-head span/.btn/etc when dropdown is inside dark bar */
+.page-head .dropdown-menu,
+.page-head ul.dropdown-menu,
+.header-actions .dropdown-menu,
+.standard-filter-section .dropdown-menu,
+.form-head .dropdown-menu,
+.actions-btn-group .dropdown-menu,
+.menu-btn-group .dropdown-menu,
+.custom-btn-group .dropdown-menu {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+.page-head .dropdown-menu *,
+.page-head .dropdown-menu a,
+.page-head .dropdown-menu span,
+.page-head .dropdown-menu .dropdown-item,
+.page-head .dropdown-menu .grey-link,
+.page-head .dropdown-menu .menu-item-label,
+.page-head .dropdown-menu kbd,
+.header-actions .dropdown-menu *,
+.header-actions .dropdown-menu a,
+.header-actions .dropdown-menu span,
+.standard-filter-section .dropdown-menu *,
+.standard-filter-section .dropdown-menu a,
+.standard-filter-section .dropdown-menu span,
+.form-head .dropdown-menu *,
+.form-head .dropdown-menu a,
+.form-head .dropdown-menu span,
+.actions-btn-group .dropdown-menu *,
+.menu-btn-group .dropdown-menu *,
+.custom-btn-group .dropdown-menu * {
+  color: #1f2937 !important;
+  background-color: transparent !important;
+}
+.page-head .dropdown-menu .dropdown-item:hover,
+.page-head .dropdown-menu .grey-link:hover,
+.header-actions .dropdown-menu .dropdown-item:hover,
+.standard-filter-section .dropdown-menu .dropdown-item:hover,
+.form-head .dropdown-menu .dropdown-item:hover {
+  background: #f3f4f6 !important;
+  color: #1f2937 !important;
+}
+
+/* Modals, dialogs, form popups - dark text on light bg */
+.modal,
+.modal-content,
+.modal-body,
+.modal-header,
+.modal-footer,
+.dialog,
+.msg-box,
+.form-dialog,
+.form-dialog .modal-content {
+  color: #1f2937 !important;
+  background: #ffffff !important;
+}
+/* Primary action buttons - keep dark/visible */
+.modal .btn-primary,
+.modal .btn-secondary,
+.modal .btn-danger,
+.modal-footer .btn-primary,
+.modal-footer .btn-secondary,
+.modal-footer .btn-danger,
+.dialog .btn-primary,
+.msg-box .btn-primary {
+  color: #ffffff !important;
+  background: var(--mma-btn) !important;
+}
+/* Cancel/Close (btn-default) - visible gray button */
+.modal .btn-default,
+.modal .btn.btn-default,
+.modal-footer .btn-default,
+.modal-footer .btn.btn-default,
+.dialog .btn-default,
+.msg-box .btn-default {
+  background: #6b7280 !important;
+  color: #ffffff !important;
+  border-color: #6b7280 !important;
+}
+.modal a,
+.modal label,
+.modal span,
+.modal div,
+.modal .form-control,
+.modal input,
+.modal select,
+.modal .frappe-control,
+.dialog a,
+.dialog label,
+.dialog span,
+.msg-box a,
+.msg-box label,
+.msg-box span {
+  color: #1f2937 !important;
+}
+
 
 /* =====================================================
    SIDEBAR
