@@ -1530,6 +1530,13 @@ frappe.views.Workspace = class customWorkspace {
 		this.wrapper = $(wrapper);
 		this.page = wrapper.page;
         this.title =  "Home"
+        // Remove full-width class when navigating away from launchpad
+        frappe.router.on('change', () => {
+            var r = frappe.router.current_route
+            if (r && r[1] && r[1] !== 'workspace') {
+                $('body').removeClass('st-launchpad-visible')
+            }
+        })
         // this.prepare_container()
     }
     show() {
@@ -1557,6 +1564,7 @@ frappe.views.Workspace = class customWorkspace {
                 var body = r.message[0]
                 // console.log(r.message[1])
                 $(body).appendTo(me.page.main)
+                $('body').addClass('st-launchpad-visible')
 				$('.app_btn').click(function(e) {
 					// alert( "Handler for .click() called." );
 					// console.log(e.currentTarget.id)
@@ -1570,6 +1578,7 @@ frappe.views.Workspace = class customWorkspace {
 						localStorage.removeItem("navdata")
 						localStorage.setItem("navdata", JSON.stringify(navbardata));
 						make_header_nav(navbardata)
+						$('body').removeClass('st-launchpad-visible')
 						frappe.set_route(`/app/${doc.home_shortcut[0].link_to.replace(/\s/g , "-").toLowerCase()}`)
 						$('.header_sec').show()
 						$('.page-head').show()
