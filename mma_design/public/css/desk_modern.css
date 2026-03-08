@@ -1,771 +1,473 @@
 /* =====================================================
-   ERPNext Modern UI Theme
+   ERPNext Modern Dark Theme
+   Clean, modern, readable
    ===================================================== */
 
-/* ROOT VARIABLES */
-
-:root{
-
---mma-bg:#f7f8fc;
---mma-surface:#ffffff;
---mma-surface-hover:#f1f3ff;
-
---mma-border:#e5e7f0;
---mma-border-light:#eef0f7;
-
---mma-text:#1f2937;
---mma-text-light:#6b7280;
-
---mma-btn:#111827;
---mma-btn-text:#ffffff;
---mma-navbar:#0f172a;
-
---mma-radius:8px;
---mma-radius-lg:12px;
-
---mma-shadow-sm:0 2px 6px rgba(0,0,0,0.05);
---mma-shadow:0 4px 12px rgba(0,0,0,0.08);
---mma-shadow-lg:0 10px 30px rgba(0,0,0,0.12);
-
---mma-transition:0.2s ease;
-
-}
-
-
-/* =====================================================
-   BODY
-   ===================================================== */
-
-body{
-
-background:var(--mma-bg) !important;
-color:var(--mma-text);
-
-font-size:14px;
-
-}
-
-
-/* =====================================================
-   NAVBAR (black)
-   ===================================================== */
-
-.navbar,
-.page-head,
-.header-actions,
-.standard-filter-section,
-.header {
-  background: var(--mma-navbar) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: var(--mma-shadow-sm);
-}
-
-.navbar a,
-.navbar .nav-link,
-.page-head a,
-.page-head .btn,
-.header-actions a,
-.header-actions .btn,
-.standard-filter-section a,
-.standard-filter-section .btn,
-.header a,
-.header .nav-link {
-  color: #ffffff !important;
-}
-
-.navbar a:hover,
-.navbar .nav-link:hover,
-.page-head a:hover,
-.page-head .btn:hover,
-.header-actions a:hover,
-.header-actions .btn:hover,
-.header a:hover,
-.header .nav-link:hover {
-  color: rgba(255,255,255,0.9) !important;
-  background: rgba(255,255,255,0.08) !important;
-  border-radius: var(--mma-radius);
-  transition: var(--mma-transition);
-}
-
-/* Second menu (page-head) - ensure ALL text and input values are visible on dark background */
-.page-head,
-.header-actions,
-.standard-filter-section,
-.form-head,
-.layout-main .page-head,
-.form-page .page-head {
-  color: #ffffff !important;
-}
-
-/* Higher specificity - exclude dropdowns (they need dark text on light bg) */
-.layout-main .page-head .title,
-.layout-main .page-head .level-item,
-.layout-main .page-head span,
-.layout-main .page-head .btn,
-.layout-main .page-head a,
-.layout-main .page-head .indicator,
-.form-page .page-head .title,
-.form-page .page-head span,
-.form-page .page-head .btn,
-.form-page .page-head a,
-.page-head .level-left .title,
-.page-head .level-left span,
-.page-head .level-left .btn,
-.page-head .level-right span,
-.page-head .level-right .btn {
-  color: #ffffff !important;
-}
-
-/* Dropdowns that open FROM dark bar - light bg + dark text for options */
-.page-head .dropdown-menu,
-.header-actions .dropdown-menu,
-.standard-filter-section .dropdown-menu {
-  background: #ffffff !important;
-  border: 1px solid var(--mma-border);
-}
-.page-head .dropdown-menu .dropdown-item,
-.header-actions .dropdown-menu .dropdown-item,
-.standard-filter-section .dropdown-menu .dropdown-item {
-  color: #1f2937 !important;
-}
-.page-head .dropdown-menu .dropdown-item:hover,
-.header-actions .dropdown-menu .dropdown-item:hover,
-.standard-filter-section .dropdown-menu .dropdown-item:hover {
-  background: #f3f4f6 !important;
-  color: #1f2937 !important;
-}
-
-.page-head .title,
-.page-head .level-item,
-.page-head span,
-.page-head div,
-.page-head label,
-.page-head .breadcrumb,
-.page-head .indicator,
-.page-head .btn,
-.page-head a,
-.header-actions span,
-.header-actions div,
-.header-actions label,
-.header-actions .btn,
-.header-actions a,
-.standard-filter-section span,
-.standard-filter-section div,
-.standard-filter-section label,
-.standard-filter-section .btn,
-.standard-filter-section a,
-.form-head .title,
-.form-head span,
-.form-head .btn,
-.form-head a {
-  color: #ffffff !important;
-}
-
-/* Inputs and form controls in dark bar - white text on semi-transparent background */
-.page-head input,
-.page-head .form-control,
-.page-head select,
-.page-head .awesomplete input,
-.page-head input[type="text"],
-.page-head .control-value,
-.header-actions input,
-.header-actions .form-control,
-.header-actions select,
-.standard-filter-section input,
-.standard-filter-section .form-control,
-.standard-filter-section select,
-.form-head input,
-.form-head .form-control {
-  color: #ffffff !important;
-  background: rgba(255,255,255,0.15) !important;
-  border-color: rgba(255,255,255,0.3) !important;
-}
-
-.page-head input::placeholder,
-.page-head .form-control::placeholder,
-.header-actions input::placeholder,
-.standard-filter-section input::placeholder,
-.form-head input::placeholder {
-  color: rgba(255,255,255,0.7) !important;
-}
-
-/* Override muted/secondary text - was gray, invisible on dark bg */
-.page-head .text-muted,
-.page-head .text-extra-muted,
-.header-actions .text-muted,
-.standard-filter-section .text-muted,
-.form-head .text-muted {
-  color: rgba(255,255,255,0.85) !important;
-}
-
-/* Force all direct text in dark bar - ellipsis, value, etc. */
-.page-head .ellipsis,
-.page-head .value,
-.page-head .selected-value,
-.page-head .filterable,
-.header-actions .ellipsis,
-.header-actions .value,
-.standard-filter-section .ellipsis,
-.standard-filter-section .value {
-  color: #ffffff !important;
-}
-
-/* Force all text in dark bar - catch any missed elements */
-.page-head .frappe-control,
-.page-head .form-group,
-.page-head [class*="control"],
-.page-head .level-left,
-.page-head .level-right,
-.form-head .frappe-control,
-.form-head .form-group {
-  color: #ffffff !important;
-}
-
-.page-head .frappe-control input,
-.page-head .frappe-control select,
-.page-head .form-group input,
-.page-head .form-group select,
-.form-head input,
-.form-head select {
-  color: #ffffff !important;
-  background: rgba(255,255,255,0.15) !important;
-  border-color: rgba(255,255,255,0.3) !important;
-}
-
-/* Link field displayed value in dark bar */
-.page-head .awesomplete input,
-.page-head .link-field .control-value,
-.page-head .frappe-control input {
-  color: #ffffff !important;
-}
-
-/* =====================================================
-   DROPDOWNS & MODALS - must have dark text on light bg
-   (overrides dark-bar rules that would make them invisible)
-   ===================================================== */
-
-/* All dropdown menus - dark text on light background */
-.dropdown-menu,
-.dropdown-menu *,
-.dropdown-menu a,
-.dropdown-menu .dropdown-item,
-.dropdown-menu .dropdown-item a,
-.dropdown-menu .btn,
-.dropdown-menu .btn a,
-.dropdown-item,
-.dropdown-item a {
-  color: #1f2937 !important;
-  background-color: transparent !important;
-}
-.dropdown-menu {
-  background: #ffffff !important;
-  border: 1px solid var(--mma-border);
-}
-.dropdown-menu .dropdown-item:hover,
-.dropdown-item:hover {
-  background: #f3f4f6 !important;
-  color: #1f2937 !important;
-}
-.dropdown-menu .dropdown-divider {
-  border-color: var(--mma-border);
-  background: transparent !important;
-}
-
-/* HIGH specificity - beat .page-head span/.btn/etc when dropdown is inside dark bar */
-.page-head .dropdown-menu,
-.page-head ul.dropdown-menu,
-.header-actions .dropdown-menu,
-.standard-filter-section .dropdown-menu,
-.form-head .dropdown-menu,
-.actions-btn-group .dropdown-menu,
-.menu-btn-group .dropdown-menu,
-.custom-btn-group .dropdown-menu {
-  background: #ffffff !important;
-  color: #1f2937 !important;
-}
-.page-head .dropdown-menu *,
-.page-head .dropdown-menu a,
-.page-head .dropdown-menu span,
-.page-head .dropdown-menu .dropdown-item,
-.page-head .dropdown-menu .grey-link,
-.page-head .dropdown-menu .menu-item-label,
-.page-head .dropdown-menu kbd,
-.header-actions .dropdown-menu *,
-.header-actions .dropdown-menu a,
-.header-actions .dropdown-menu span,
-.standard-filter-section .dropdown-menu *,
-.standard-filter-section .dropdown-menu a,
-.standard-filter-section .dropdown-menu span,
-.form-head .dropdown-menu *,
-.form-head .dropdown-menu a,
-.form-head .dropdown-menu span,
-.actions-btn-group .dropdown-menu *,
-.menu-btn-group .dropdown-menu *,
-.custom-btn-group .dropdown-menu * {
-  color: #1f2937 !important;
-  background-color: transparent !important;
-}
-.page-head .dropdown-menu .dropdown-item:hover,
-.page-head .dropdown-menu .grey-link:hover,
-.header-actions .dropdown-menu .dropdown-item:hover,
-.standard-filter-section .dropdown-menu .dropdown-item:hover,
-.form-head .dropdown-menu .dropdown-item:hover {
-  background: #f3f4f6 !important;
-  color: #1f2937 !important;
-}
-
-/* Modals, dialogs, form popups - dark text on light bg */
-.modal,
-.modal-content,
-.modal-body,
-.modal-header,
-.modal-footer,
-.dialog,
-.msg-box,
-.form-dialog,
-.form-dialog .modal-content {
-  color: #1f2937 !important;
-  background: #ffffff !important;
-}
-/* Primary action buttons - keep dark/visible */
-.modal .btn-primary,
-.modal .btn-secondary,
-.modal .btn-danger,
-.modal-footer .btn-primary,
-.modal-footer .btn-secondary,
-.modal-footer .btn-danger,
-.dialog .btn-primary,
-.msg-box .btn-primary {
-  color: #ffffff !important;
-  background: var(--mma-btn) !important;
-}
-/* Cancel/Close (btn-default) - visible gray button */
-.modal .btn-default,
-.modal .btn.btn-default,
-.modal-footer .btn-default,
-.modal-footer .btn.btn-default,
-.dialog .btn-default,
-.msg-box .btn-default {
-  background: #6b7280 !important;
-  color: #ffffff !important;
-  border-color: #6b7280 !important;
-}
-.modal a,
-.modal label,
-.modal span,
-.modal div,
-.modal .form-control,
-.modal input,
-.modal select,
-.modal .frappe-control,
-.dialog a,
-.dialog label,
-.dialog span,
-.msg-box a,
-.msg-box label,
-.msg-box span {
-  color: #1f2937 !important;
-}
-
-
-/* =====================================================
-   SIDEBAR
-   ===================================================== */
-
-.layout-side-section{
-
-background:#ffffff !important;
-
-border-right:1px solid var(--mma-border);
-
-}
-
-.layout-side-section .sidebar-menu a{
-
-border-radius:var(--mma-radius);
-
-margin:2px 6px;
-
-padding:8px 10px;
-
-transition:var(--mma-transition);
-
-}
-
-.layout-side-section .sidebar-menu a:hover{
-
-background:var(--mma-surface-hover);
-
-}
-
-.layout-side-section .sidebar-menu a.active,
-.layout-side-section .sidebar-menu a.router-link-active{
-
-background:var(--mma-btn) !important;
-
-color:var(--mma-btn-text) !important;
-
-font-weight:600;
-
-}
-
-.layout-side-section .sidebar-menu a .icon{
-
-margin-right:6px;
-
-opacity:0.8;
-
-transition:opacity var(--mma-transition);
-
-}
-
-.layout-side-section .sidebar-menu a:hover .icon{
-
-opacity:1;
-
-}
-
-
-/* =====================================================
-   PAGE CONTAINER
-   ===================================================== */
-
-.page-container{
-
-padding:15px;
-
-}
-
-
-/* =====================================================
-   CARDS
-   ===================================================== */
-
-.card{
-
-border-radius:var(--mma-radius-lg);
-
-border:1px solid var(--mma-border-light);
-
-box-shadow:var(--mma-shadow-sm);
-
-background:var(--mma-surface);
-
-}
-
-
-/* =====================================================
-   BUTTONS (black with modern hovers)
-   ===================================================== */
-
-.btn,
-.btn-primary,
-.btn-secondary,
-.btn-default {
-  background: var(--mma-btn) !important;
-  border: none !important;
-  color: var(--mma-btn-text) !important;
-  border-radius: var(--mma-radius);
-  padding: 6px 14px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-}
-
-.btn:hover,
-.btn-primary:hover,
-.btn-secondary:hover,
-.btn-default:hover {
-  background: #1f2937 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.btn:active,
-.btn-primary:active,
-.btn-secondary:active,
-.btn-default:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-}
-
-/* Text/link-style buttons (Add Row, Download, etc.) */
-.btn.btn-sm,
-a.btn-link {
-  background: transparent !important;
-  color: var(--mma-btn) !important;
-  box-shadow: none !important;
-}
-
-.btn.btn-sm:hover,
-a.btn-link:hover {
-  background: rgba(17,24,39,0.08) !important;
-  color: #0f172a !important;
-}
-
-
-/* =====================================================
-   FORM INPUTS
-   ===================================================== */
-
-.form-control{
-
-border-radius:var(--mma-radius);
-
-border:1px solid var(--mma-border);
-
-box-shadow:none !important;
-
-}
-
-.form-control:focus{
-
-border-color:#6366f1;
-
-box-shadow:0 0 0 2px rgba(99,102,241,0.1);
-
-}
-
-
-/* =====================================================
-   TABLES
-   ===================================================== */
-
-.table{
-
-background:white;
-
-border-radius:var(--mma-radius);
-
-/* overflow:visible so Link field / Awesomplete dropdowns are not clipped */
-overflow:visible;
-
-}
-
-.table thead{
-
-background:var(--mma-surface-hover);
-
-}
-
-.table th{
-
-font-weight:600;
-
-font-size:13px;
-
-color:var(--mma-text-light);
-
-}
-
-.table td{
-
-vertical-align:middle;
-
-}
-
-
-/* =====================================================
-   LINK FIELD / AWESOMPLETE DROPDOWN (fix clipped values)
-   ===================================================== */
-
-/* Ensure parent containers don't clip the dropdown - table, form-grid (NOT grid-body - that would break scroll) */
-.form-layout .table,
-.form-layout .form-grid,
-.grid-row .table,
-.frappe-control .table,
-.frappe-control .form-grid,
-.form-grid .table,
-.form-grid tbody {
-  overflow: visible !important;
-}
-
-/* Link field wrapper - allow dropdown to escape */
-.frappe-control .form-control,
-.grid-row .form-control,
-.form-layout .form-control {
-  position: relative;
-}
-
-/* Awesomplete dropdown - fixed position escapes scroll containers (grid-body overflow) */
-.awesomplete ul[role="listbox"],
-ul.awesomplete-list,
-ul[role="listbox"] {
-  z-index: 99999 !important;
-  overflow-y: auto !important;
-  max-height: 300px;
-  position: fixed !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  background: #fff;
-}
-
-
-/* =====================================================
-   TABLE ALIGNMENT (fix grid head/body sync on scroll)
-   ===================================================== */
-
-/* Keep grid header and body columns aligned when scrolling */
-.form-grid,
-.grid-form {
-  table-layout: fixed;
-}
-
-.form-grid table,
-.grid-form table,
-.grid-head table,
-.grid-body table {
-  table-layout: fixed;
-  width: 100% !important;
-}
-
-/* Prevent layout shift on scroll */
-.grid-head,
-.grid-body {
-  overflow-anchor: auto;
-}
-
-/* Ensure header and body tables stay in sync */
-.grid-head .table,
-.grid-body .table {
-  table-layout: fixed;
-}
-
-
-/* =====================================================
-   MODALS
-   ===================================================== */
-
-.modal-content{
-
-border-radius:var(--mma-radius-lg);
-
-border:1px solid var(--mma-border-light);
-
-box-shadow:var(--mma-shadow-lg);
-
-}
-
-.modal-header{
-
-background:var(--mma-surface-hover);
-
-border-bottom:1px solid var(--mma-border-light);
-
-}
-
-.modal-title{
-
-font-weight:700;
-
-font-size:15px;
-
-}
-
-.modal-footer{
-
-border-top:1px solid var(--mma-border-light);
-
-}
-
-
-/* =====================================================
-   NOTIFICATIONS
-   ===================================================== */
-
-.frappe-notification{
-
-border-radius:var(--mma-radius);
-
-border:1px solid var(--mma-border-light);
-
-box-shadow:var(--mma-shadow);
-
-}
-
-
-/* =====================================================
-   SCROLLBAR
-   ===================================================== */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-height:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:var(--mma-bg);
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#cbd5f5;
-
-border-radius:10px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#a5b4fc;
-
-}
-
-
-/* =====================================================
-   DASHBOARD WIDGETS
-   ===================================================== */
-
-.widget{
-
-border-radius:var(--mma-radius-lg);
-
-border:1px solid var(--mma-border-light);
-
-background:white;
-
-box-shadow:var(--mma-shadow-sm);
-
-padding:12px;
-
-}
-
-
-/* =====================================================
-   BADGES
-   ===================================================== */
-
-.badge{
-
-border-radius:6px;
-
-padding:4px 8px;
-
-font-size:11px;
-
-font-weight:600;
-
-}
-
-
-/* =====================================================
-   LINK STYLE
-   ===================================================== */
-
-a{
-
-color:#4f46e5;
-
-}
-
-a:hover{
-
-text-decoration:none;
-
-opacity:0.9;
-
-}
+   :root {
+    --app-bg: #f5f7fb;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --surface-3: #eef2f7;
+  
+    --text: #111827;
+    --text-soft: #6b7280;
+    --text-muted: #94a3b8;
+  
+    --border: #e5e7eb;
+    --border-soft: #edf2f7;
+  
+    --nav-dark: #0b1220;
+    --nav-dark-2: #111827;
+    --accent: #2563eb;
+    --accent-soft: rgba(37, 99, 235, 0.12);
+  
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #d97706;
+  
+    --btn-dark: #111827;
+    --btn-dark-hover: #1f2937;
+    --btn-text: #ffffff;
+  
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 16px;
+  
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+    --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+  
+    --transition: all 0.2s ease;
+  }
+  
+  /* =====================================================
+     BASE
+     ===================================================== */
+  
+  body {
+    background: var(--app-bg) !important;
+    color: var(--text) !important;
+    font-size: 14px;
+  }
+  
+  .layout-main-section,
+  .page-container,
+  .page-content,
+  .layout-main {
+    background: transparent !important;
+  }
+  
+  /* =====================================================
+     TOP NAVBAR
+     ===================================================== */
+  
+  .navbar,
+  header.navbar,
+  .header {
+    background: linear-gradient(135deg, var(--nav-dark), var(--nav-dark-2)) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-shadow: var(--shadow-sm) !important;
+    min-height: 56px;
+  }
+  
+  .navbar .navbar-brand,
+  .navbar .nav-link,
+  .navbar a,
+  .header a,
+  .header .nav-link {
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar a:hover,
+  .header a:hover,
+  .header .nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px;
+  }
+  
+  /* =====================================================
+     PAGE HEADER / TOOLBAR
+     Better than forcing everything white
+     ===================================================== */
+  
+  .page-head,
+  .form-head,
+  .list-paging-area,
+  .layout-main .page-head {
+    background: #ffffff !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 14px !important;
+    margin: 12px 12px 0 12px;
+    padding: 10px 14px !important;
+    box-shadow: var(--shadow-sm);
+    color: var(--text) !important;
+  }
+  
+  /* Title and normal text */
+  .page-head .title,
+  .page-head .ellipsis,
+  .page-head .level-item,
+  .page-head .indicator,
+  .page-head .text-muted,
+  .form-head .title,
+  .form-head .text-muted {
+    color: var(--text) !important;
+  }
+  
+  /* =====================================================
+     LIST / FILTER BAR
+     ===================================================== */
+  
+  .list-row-head,
+  .result,
+  .list-subject,
+  .list-row-container,
+  .standard-filter-section {
+    background: transparent !important;
+    color: var(--text) !important;
+  }
+  
+  /* Search/filter inputs */
+  .page-head input,
+  .page-head select,
+  .page-head .form-control,
+  .page-head .awesomplete input,
+  .standard-filter-section input,
+  .standard-filter-section .form-control,
+  .form-control {
+    background: #ffffff !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+  }
+  
+  .page-head input::placeholder,
+  .page-head .form-control::placeholder,
+  .form-control::placeholder {
+    color: var(--text-soft) !important;
+  }
+  
+  .page-head input:focus,
+  .page-head .form-control:focus,
+  .form-control:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 4px var(--accent-soft) !important;
+  }
+  
+  /* =====================================================
+     BUTTONS
+     ===================================================== */
+  
+  .btn,
+  .btn-default,
+  .btn-primary,
+  .btn-secondary {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    transition: var(--transition) !important;
+    box-shadow: none !important;
+  }
+  
+  .btn-primary {
+    background: var(--btn-dark) !important;
+    border: 1px solid var(--btn-dark) !important;
+    color: var(--btn-text) !important;
+  }
+  
+  .btn-primary:hover {
+    background: var(--btn-dark-hover) !important;
+    border-color: var(--btn-dark-hover) !important;
+    transform: translateY(-1px);
+  }
+  
+  .btn-default,
+  .btn-secondary {
+    background: #ffffff !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+  }
+  
+  .btn-default:hover,
+  .btn-secondary:hover {
+    background: var(--surface-2) !important;
+    border-color: #d1d5db !important;
+  }
+  
+  /* Small icon buttons */
+  .btn.btn-sm,
+  .page-head .btn.btn-sm {
+    border-radius: 9px !important;
+  }
+  
+  /* =====================================================
+     CARDS / PANELS
+     ===================================================== */
+  
+  .card,
+  .widget,
+  .form-section,
+  .layout-side-section,
+  .frappe-card {
+    background: var(--surface) !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  /* =====================================================
+     SIDEBAR
+     ===================================================== */
+  
+  .layout-side-section {
+    padding-top: 8px;
+  }
+  
+  .layout-side-section .sidebar-menu a,
+  .standard-sidebar .sidebar-item-container a {
+    margin: 4px 8px !important;
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+    color: var(--text) !important;
+    transition: var(--transition) !important;
+  }
+  
+  .layout-side-section .sidebar-menu a:hover,
+  .standard-sidebar .sidebar-item-container a:hover {
+    background: var(--surface-2) !important;
+  }
+  
+  .layout-side-section .sidebar-menu a.active,
+  .layout-side-section .sidebar-menu a.router-link-active,
+  .standard-sidebar .sidebar-item-container.selected a {
+    background: var(--btn-dark) !important;
+    color: #ffffff !important;
+  }
+  
+  /* =====================================================
+     TABLES / LIST VIEW
+     ===================================================== */
+  
+  .table,
+  .list-row,
+  .list-row-head,
+  .grid-heading-row {
+    background: #ffffff !important;
+  }
+  
+  .table {
+    border-radius: 12px !important;
+    overflow: visible !important;
+  }
+  
+  .table thead,
+  .grid-heading-row {
+    background: #f8fafc !important;
+  }
+  
+  .table th,
+  .grid-heading-row .data-row .row-index,
+  .grid-heading-row .grid-static-col {
+    color: var(--text-soft) !important;
+    font-weight: 600 !important;
+  }
+  
+  .table td,
+  .list-row-col,
+  .list-subject a,
+  .list-row a {
+    color: var(--text) !important;
+  }
+  
+  /* Zebra / hover */
+  .list-row:hover,
+  .table tbody tr:hover {
+    background: #f9fbff !important;
+  }
+  
+  /* =====================================================
+     DROPDOWNS
+     This is where your disappearing values usually happen
+     ===================================================== */
+  
+  .dropdown-menu,
+  ul.dropdown-menu,
+  div[role="menu"],
+  .awesomplete > ul {
+    background: #ffffff !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--shadow) !important;
+    padding: 6px 0 !important;
+    color: var(--text) !important;
+    z-index: 1000 !important;
+  }
+  
+  /* IMPORTANT: force readable text inside dropdowns */
+  .dropdown-menu *,
+  .dropdown-menu a,
+  .dropdown-menu .dropdown-item,
+  .dropdown-menu .menu-item-label,
+  .dropdown-menu li,
+  .dropdown-menu span,
+  .dropdown-menu button,
+  div[role="menu"] *,
+  .awesomplete > ul * {
+    color: var(--text) !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+  
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu a:hover,
+  .dropdown-menu button:hover,
+  div[role="menu"] a:hover,
+  .awesomplete > ul > li:hover,
+  .awesomplete > ul > li[aria-selected="true"] {
+    background: #f3f6fb !important;
+    color: var(--text) !important;
+  }
+  
+  .dropdown-divider {
+    border-color: var(--border-soft) !important;
+  }
+  
+  /* =====================================================
+     MODALS / DIALOGS
+     ===================================================== */
+  
+  .modal-content,
+  .form-dialog .modal-content,
+  .msg-box,
+  .dialog {
+    background: #ffffff !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-lg) !important;
+    color: var(--text) !important;
+  }
+  
+  .modal-header,
+  .modal-footer {
+    border-color: var(--border-soft) !important;
+  }
+  
+  .modal-title,
+  .modal label,
+  .modal .control-label,
+  .modal .form-control,
+  .modal input,
+  .modal select,
+  .modal textarea {
+    color: var(--text) !important;
+  }
+  
+  /* =====================================================
+     TAGS / PILLS / INDICATORS
+     ===================================================== */
+  
+  .indicator,
+  .filter-pill,
+  .list-count,
+  .badge {
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+  }
+  
+  /* =====================================================
+     LINKS
+     ===================================================== */
+  
+  a {
+    color: var(--accent) !important;
+  }
+  
+  a:hover {
+    opacity: 0.9;
+    text-decoration: none !important;
+  }
+  
+  /* =====================================================
+     GRID / LINK FIELD / AWESOMPLETE
+     ===================================================== */
+  
+  .form-grid,
+  .grid-form,
+  .grid-body,
+  .grid-row,
+  .frappe-control {
+    overflow: visible !important;
+  }
+  
+  .awesomplete > ul {
+    max-height: 280px !important;
+    overflow-y: auto !important;
+  }
+  
+  /* =====================================================
+     SCROLLBAR
+     ===================================================== */
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #edf2f7;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  
+  /* =====================================================
+     FIXES FOR DARK TEXT DISAPPEARING
+     Do NOT force all page-head text to white
+     ===================================================== */
+  
+  /* Reset overly broad inherited white text */
+  .page-head *,
+  .form-head *,
+  .standard-filter-section * {
+    text-shadow: none !important;
+  }
+  
+  /* Keep only top navbar white */
+  .navbar *,
+  .header * {
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  /* But dropdowns opened from navbar/page-head must stay dark */
+  .navbar .dropdown-menu *,
+  .header .dropdown-menu *,
+  .page-head .dropdown-menu *,
+  .form-head .dropdown-menu * {
+    color: var(--text) !important;
+  }
+  
+  /* Selected values, filters, counters */
+  .page-head .selected-value,
+  .page-head .filterable,
+  .page-head .value,
+  .page-head .control-value,
+  .page-head .like-disabled-input,
+  .page-head .multiselect__single,
+  .page-head .indicator-pill {
+    color: var(--text) !important;
+  }
+  
+  /* Muted labels should still be visible */
+  .page-head .text-muted,
+  .page-head .text-extra-muted,
+  .form-head .text-muted {
+    color: var(--text-soft) !important;
+  }
