@@ -13,10 +13,7 @@ body.st-launchpad-visible #page-container,
 body.st-launchpad-visible .page-body,
 body.st-launchpad-visible .container,
 body.st-launchpad-visible [class*="col-lg-12"],
-body.st-launchpad-visible .row.layout-main,
-body:has(.st-launchpad) .layout-main,
-body:has(.st-launchpad) .layout-main-section,
-body:has(.st-launchpad) .layout-main-section-wrapper {
+body.st-launchpad-visible .row.layout-main {
   max-width: 100% !important;
   width: 100% !important;
   padding-left: 0 !important;
@@ -24,8 +21,7 @@ body:has(.st-launchpad) .layout-main-section-wrapper {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-body.st-launchpad-visible .layout-main-section,
-body:has(.st-launchpad) .layout-main-section {
+body.st-launchpad-visible .layout-main-section {
   overflow: visible !important;
 }
 .st-launchpad {
@@ -400,8 +396,8 @@ body:has(.st-launchpad) .layout-main-section {
 }
 
 /* ── Hide Frappe chrome on workspace/home ── */
-.st-launchpad ~ .page-head,
-.st-launchpad ~ .header_sec {
+body.st-launchpad-visible .page-head,
+body.st-launchpad-visible .header_sec {
   display: none !important;
 }
 
@@ -415,4 +411,47 @@ body:has(.st-launchpad) .layout-main-section {
 ul.awesomplete-list {
   z-index: 9999 !important;
   position: absolute !important;
+}
+
+/* Form/view polish outside launchpad only */
+body:not(.st-launchpad-visible) .form-page .layout-main-section,
+body:not(.st-launchpad-visible) .list-page .layout-main-section,
+body:not(.st-launchpad-visible) .report-page .layout-main-section {
+  background: #f8fafc !important;
+}
+
+body:not(.st-launchpad-visible) .form-page .form-layout,
+body:not(.st-launchpad-visible) .form-page .form-section,
+body:not(.st-launchpad-visible) .form-page .section-body,
+body:not(.st-launchpad-visible) .form-page .frappe-control {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body:not(.st-launchpad-visible) .form-page .form-section {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05) !important;
+  padding: 10px 12px !important;
+}
+
+body:not(.st-launchpad-visible) .form-page .section-head {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
+
+body:not(.st-launchpad-visible) .form-page .control-label,
+body:not(.st-launchpad-visible) .form-page .ellipsis {
+  color: #374151 !important;
+}
+
+body:not(.st-launchpad-visible) .form-page .control-input input,
+body:not(.st-launchpad-visible) .form-page .control-input textarea,
+body:not(.st-launchpad-visible) .form-page .control-input select,
+body:not(.st-launchpad-visible) .form-page .control-input .input-with-feedback {
+  border-radius: 10px !important;
+  border: 1px solid #d1d5db !important;
+  background: #ffffff !important;
+  color: #111827 !important;
 }
