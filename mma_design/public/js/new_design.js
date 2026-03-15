@@ -2,9 +2,20 @@ const openMenuFirstPageIcon = document.querySelector(
 	"[data-first-page-open-nav]"
   )
   const closeMenuFirstPageIcon = document.querySelector(".close_mennu")
+
+  function getSafeNavData() {
+	const raw = localStorage.getItem("navdata");
+	if (!raw) return [];
+	try {
+		const parsed = JSON.parse(raw);
+		return Array.isArray(parsed) ? parsed : [];
+	} catch (e) {
+		return [];
+	}
+  }
   
   function openFirstPageNav() {
-	let navbardata = JSON.parse(localStorage.getItem("navdata") || JSON.parse([]))
+	let navbardata = getSafeNavData()
 	console.log("navbardata", navbardata)
   
 	const menuFirstPage = document.querySelector("[data-menu-first-page]")
@@ -533,7 +544,7 @@ function make_header_nav(data){
 	}
 }
 
-if(JSON.parse(localStorage.getItem('navdata') ) === null ){
+if(localStorage.getItem('navdata') === null ){
 	localStorage.setItem("navdata", JSON.stringify([]));
 }
 frappe.ui.Page = class Page {
@@ -546,7 +557,7 @@ frappe.ui.Page = class Page {
 		this.views = {};
 
 		this.make();
-		let navbardata = JSON.parse(localStorage.getItem('navdata') || JSON.parse([]));
+		let navbardata = getSafeNavData();
 	
 		// console.log(navbardata)
 		frappe.ui.pages[frappe.get_route_str()] = this;
@@ -1579,7 +1590,11 @@ frappe.views.Workspace = class customWorkspace {
 						localStorage.setItem("navdata", JSON.stringify(navbardata));
 						make_header_nav(navbardata)
 						$('body').removeClass('st-launchpad-visible')
-						frappe.set_route(`/app/${doc.home_shortcut[0].link_to.replace(/\s/g , "-").toLowerCase()}`)
+						if (doc.home_shortcut && doc.home_shortcut.length && doc.home_shortcut[0].link_to) {
+							frappe.set_route(`/app/${doc.home_shortcut[0].link_to.replace(/\s/g , "-").toLowerCase()}`)
+						} else {
+							frappe.set_route('/app')
+						}
 						$('.header_sec').show()
 						$('.page-head').show()
 						// let app = new frappe.ui.Page()
