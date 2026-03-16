@@ -60,7 +60,6 @@
   /* The layout-main-section must be display:block for forms to render */
   .layout-main-section {
     display: block !important;
-    min-height: 200px;
   }
 
   /* Ensure form sections, rows and columns are visible */
