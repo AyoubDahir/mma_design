@@ -660,63 +660,27 @@ frappe.ui.Page = class Page {
 	// 			</div>
 	// 		`
 	// 		);
-	// 	}
 
-	// 	this.setup_page();
-	// }
-  
-    add_main_section() {
+	add_main_section() {
 		$(frappe.render_template("page", {})).appendTo(this.wrapper);
-		// if (this.single_column) {
-		// 	// nesting under col-sm-12 for consistency
-		// 	this.add_view(
-		// 		"main",
-		// 		'<div class="row layout-main">\
-		// 			<div class="col-md-12 layout-main-section-wrapper">\
-		// 				<div class="layout-main-section"></div>\
-		// 				<div class="layout-footer hide"></div>\
-		// 			</div>\
-		// 		</div>'
-		// 	);
-		// } else {
-			// alert("ok")
-			this.add_view(
-				"main",
-				`
-				<div class="row layout-main" style = "height:100% ;width:100%">
-					
-					
+		this.add_view(
+			"main",
+			`<div class="row layout-main">
 				<div class="col-lg-2 layout-side-section hide"></div>
-					
-					<div class="col-lg-12 layout-main-section-wrapper">
-						<div class="layout-main-section" >
-						
-						</div>
-						
-					</div>
-
-
-
-					<!-- Floot Button -->
-
-					<div class="btn-group-fab" role="group" aria-label="FAB Menu">
-					
-				  </div>
-								  </div>
-
-			`
-			);
-	
-		// }
-
+				<div class="col-lg-12 layout-main-section-wrapper">
+					<div class="layout-main-section"></div>
+					<div class="layout-footer hide"></div>
+				</div>
+			</div>`
+		);
 		this.setup_page();
 	}
-
 
 	setup_page() {
 		this.$title_area = this.wrapper.find(".title-area");
 
 		this.$sub_title_area = this.wrapper.find("h6");
+
 
 		if (this.title) this.set_title(this.title);
 

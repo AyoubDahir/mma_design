@@ -18,10 +18,13 @@
   --fs-13: 0.8125rem;
 }
 
-/* removing browser default styles */
-*,
-*::before,
-*::after {
+/* Scoped reset — only apply to custom nav/menu elements.
+   Do NOT reset * globally: it breaks Bootstrap's negative-margin grid
+   and collapses all ERPNext form fields. */
+.menu,
+.menu *,
+.overlay,
+.overlay * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -31,6 +34,9 @@ body {
   background-color: var(--white-color);
   font-family: "Epilogue", sans-serif;
   box-sizing: inherit;
+  /* Force LTR: prevents Arabic-locale RTL flipping the form layout */
+  direction: ltr !important;
+  text-align: left !important;
 }
 
 p,
@@ -617,13 +623,6 @@ a {
 
 /* TABLE DESKTOP SCREEN */
 @media (min-width: 62.5em) {
-  #example-table {
-    /* display: none !important; */
-    /* padding: var(--paddingX);
-    margin-block-start: 18px;
-    background-color: #fff;
-    border: none; */
-  }
 
   .tabulator-tableholder {
     font-size: 16px;
