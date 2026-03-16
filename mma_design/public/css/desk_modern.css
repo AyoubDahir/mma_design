@@ -52,32 +52,6 @@
     direction: ltr !important;
   }
   
-  /* =====================================================
-     FORM LAYOUT FIX
-     Ensure form sections render and are visible
-     ===================================================== */
-
-  /* The layout-main-section must be display:block for forms to render */
-  .layout-main-section {
-    display: block !important;
-  }
-
-  /* Ensure form sections, rows and columns are visible */
-  .form-section,
-  .section-body,
-  .form-column,
-  .frappe-control {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* Fix: Bootstrap row uses negative margins; never reset them */
-  .row.layout-main {
-    /* no height:100% — allow form content to determine height naturally */
-    min-height: 0;
-  }
-
   .layout-main-section,
   .page-container,
   .page-content,

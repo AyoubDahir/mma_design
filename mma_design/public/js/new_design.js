@@ -665,12 +665,13 @@ frappe.ui.Page = class Page {
 		$(frappe.render_template("page", {})).appendTo(this.wrapper);
 		this.add_view(
 			"main",
-			`<div class="row layout-main">
+			`<div class="row layout-main" style="height:100%;width:100%">
 				<div class="col-lg-2 layout-side-section hide"></div>
 				<div class="col-lg-12 layout-main-section-wrapper">
 					<div class="layout-main-section"></div>
 					<div class="layout-footer hide"></div>
 				</div>
+				<div class="btn-group-fab" role="group" aria-label="FAB Menu"></div>
 			</div>`
 		);
 		this.setup_page();
