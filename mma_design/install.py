@@ -30,7 +30,6 @@ ICON_MAP = {
 	"Utilities": "fa-toolbox",
 	"Cashier": "fa-cash-register",
 	"Leaderboard": "fa-star",
-	"Optic Store": "fa-glasses",
 }
 
 COLOR_MAP = {
@@ -54,7 +53,6 @@ COLOR_MAP = {
 	"Tools": "#8b5cf6",
 	"Cashier": "#ec4899",
 	"Leaderboard": "#f59e0b",
-	"Optic Store": "#0ea5e9",
 }
 
 DEFAULT_COLORS = [
@@ -66,56 +64,6 @@ DEFAULT_COLORS = [
 def after_install():
 	"""Seed Home Page records from Workspace after mma_design is installed."""
 	seed_home_pages()
-
-
-def seed_custom_home_pages():
-	"""
-	Seed Home Page records for apps that do not define a Workspace.
-	E.g. optic_store extends ERPNext modules but has no Workspace.
-	"""
-	if not frappe.db.exists("DocType", "Home Page"):
-		return
-
-	# Optic Store - app has no Workspace; add tile when app is installed
-	if "optic_store" in frappe.get_installed_apps():
-		_label = "Optic Store"
-		if not frappe.db.exists("Home Page", _label):
-			try:
-				doc = frappe.new_doc("Home Page")
-				doc.label = _label
-				doc.module = "optic_store"
-				doc.icon = ICON_MAP.get(_label, "fa-glasses")
-				doc.color = COLOR_MAP.get(_label, "#0ea5e9")
-				doc.sequence_id = 100  # place after standard modules
-				doc.public = 1
-				# Links to key optic_store doctypes
-				for link_to, link_label in [
-					("Optical Prescription", "Optical Prescription"),
-					("Sales Order", "Sales Order"),
-					("Stock Transfer", "Stock Transfer"),
-				]:
-					if frappe.db.exists("DocType", link_to):
-						doc.append("home_shortcut", {"type": "DocType", "link_to": link_to, "label": link_label})
-				if not doc.home_shortcut:
-					doc.append("home_shortcut", {"type": "DocType", "link_to": "Sales Order", "label": _label})
-				doc.insert(ignore_permissions=True)
-				frappe.db.commit()
-			except Exception:
-				frappe.db.rollback()
-		else:
-			# Update icon/color if exists
-			try:
-				existing = frappe.get_doc("Home Page", _label)
-				if existing.icon != ICON_MAP.get(_label, "fa-glasses"):
-					existing.icon = ICON_MAP.get(_label, "fa-glasses")
-					existing.save(ignore_permissions=True)
-					frappe.db.commit()
-				if existing.color != COLOR_MAP.get(_label, "#0ea5e9"):
-					existing.color = COLOR_MAP.get(_label, "#0ea5e9")
-					existing.save(ignore_permissions=True)
-					frappe.db.commit()
-			except Exception:
-				frappe.db.rollback()
 
 
 def seed_home_pages():
@@ -193,5 +141,3 @@ def seed_home_pages():
 		except Exception:
 			frappe.db.rollback()
 
-	# Seed custom app tiles (optic_store, etc.) that have no Workspace
-	seed_custom_home_pages()
