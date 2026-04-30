@@ -3,473 +3,551 @@
    Clean, modern, readable
    ===================================================== */
 
-   :root {
-    --app-bg: #f5f7fb;
-    --surface: #ffffff;
-    --surface-2: #f8fafc;
-    --surface-3: #eef2f7;
-  
-    --text: #111827;
-    --text-soft: #6b7280;
-    --text-muted: #94a3b8;
-  
-    --border: #e5e7eb;
-    --border-soft: #edf2f7;
-  
-    --nav-dark: #0b1220;
-    --nav-dark-2: #111827;
-    --accent: #2563eb;
-    --accent-soft: rgba(37, 99, 235, 0.12);
-  
-    --success: #16a34a;
-    --danger: #dc2626;
-    --warning: #d97706;
-  
-    --btn-dark: #111827;
-    --btn-dark-hover: #1f2937;
-    --btn-text: #ffffff;
-  
-    --radius-sm: 8px;
-    --radius: 12px;
-    --radius-lg: 16px;
-  
-    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
-    --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
-  
-    --transition: all 0.2s ease;
-  }
-  
-  /* =====================================================
+:root {
+  --app-bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #eef2f7;
+
+  --text: #111827;
+  --text-soft: #6b7280;
+  --text-muted: #94a3b8;
+
+  --border: #e5e7eb;
+  --border-soft: #edf2f7;
+
+  --nav-dark: #0b1220;
+  --nav-dark-2: #111827;
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+
+  --btn-dark: #111827;
+  --btn-dark-hover: #1f2937;
+  --btn-text: #ffffff;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+
+  --transition: all 0.2s ease;
+}
+
+/* =====================================================
      BASE
      ===================================================== */
-  
-  body {
-    background: var(--app-bg) !important;
-    color: var(--text) !important;
-    font-size: 14px;
-    /* Force LTR layout to prevent Arabic locale from RTL-flipping form fields */
-    direction: ltr !important;
-  }
-  
-  .layout-main-section,
-  .page-container,
-  .page-content,
-  .layout-main {
-    background: transparent !important;
-  }
-  
-  /* =====================================================
+
+body {
+  background: var(--app-bg) !important;
+  color: var(--text) !important;
+  font-size: 14px;
+  /* Force LTR layout to prevent Arabic locale from RTL-flipping form fields */
+  direction: ltr !important;
+}
+
+.layout-main-section,
+.page-container,
+.page-content,
+.layout-main {
+  background: transparent !important;
+}
+
+/* =====================================================
      TOP NAVBAR
      ===================================================== */
-  
-  .navbar,
-  header.navbar,
-  .header {
-    background: linear-gradient(135deg, var(--nav-dark), var(--nav-dark-2)) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-    box-shadow: var(--shadow-sm) !important;
-    min-height: 56px;
-  }
-  
-  .navbar .navbar-brand,
-  .navbar .nav-link,
-  .navbar a,
-  .header a,
-  .header .nav-link {
-    color: rgba(255, 255, 255, 0.95) !important;
-  }
-  
-  .navbar .nav-link:hover,
-  .navbar a:hover,
-  .header a:hover,
-  .header .nav-link:hover {
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-radius: 8px;
-  }
-  
-  /* =====================================================
+
+.navbar,
+header.navbar,
+.header {
+  background: linear-gradient(135deg, var(--nav-dark), var(--nav-dark-2)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: var(--shadow-sm) !important;
+  min-height: 56px;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar a,
+.header a,
+.header .nav-link {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar .nav-link:hover,
+.navbar a:hover,
+.header a:hover,
+.header .nav-link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px;
+}
+
+/* =====================================================
      PAGE HEADER / TOOLBAR
      Better than forcing everything white
      ===================================================== */
-  
-  .page-head,
-  .form-head,
-  .list-paging-area,
-  .layout-main .page-head {
-    background: #ffffff !important;
-    border: 1px solid var(--border-soft) !important;
-    border-radius: 14px !important;
-    margin: 12px 12px 0 12px;
-    padding: 10px 14px !important;
-    box-shadow: var(--shadow-sm);
-    color: var(--text) !important;
-  }
-  
-  /* Title and normal text */
-  .page-head .title,
-  .page-head .ellipsis,
-  .page-head .level-item,
-  .page-head .indicator,
-  .page-head .text-muted,
-  .form-head .title,
-  .form-head .text-muted {
-    color: var(--text) !important;
-  }
-  
-  /* =====================================================
+
+.page-head,
+.form-head,
+.list-paging-area,
+.layout-main .page-head {
+  background: #ffffff !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 14px !important;
+  margin: 12px 12px 0 12px;
+  padding: 10px 14px !important;
+  box-shadow: var(--shadow-sm);
+  color: var(--text) !important;
+}
+
+/* Title and normal text */
+.page-head .title,
+.page-head .ellipsis,
+.page-head .level-item,
+.page-head .indicator,
+.page-head .text-muted,
+.form-head .title,
+.form-head .text-muted {
+  color: var(--text) !important;
+}
+
+/* =====================================================
      LIST / FILTER BAR
      ===================================================== */
-  
-  .list-row-head,
-  .result,
-  .list-subject,
-  .list-row-container,
-  .standard-filter-section {
-    background: transparent !important;
-    color: var(--text) !important;
-  }
-  
-  /* Search/filter inputs */
-  .page-head input,
-  .page-head select,
-  .page-head .form-control,
-  .page-head .awesomplete input,
-  .standard-filter-section input,
-  .standard-filter-section .form-control,
-  .form-control {
-    background: #ffffff !important;
-    color: var(--text) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 10px !important;
-    box-shadow: none !important;
-  }
-  
-  .page-head input::placeholder,
-  .page-head .form-control::placeholder,
-  .form-control::placeholder {
-    color: var(--text-soft) !important;
-  }
-  
-  .page-head input:focus,
-  .page-head .form-control:focus,
-  .form-control:focus {
-    border-color: var(--accent) !important;
-    box-shadow: 0 0 0 4px var(--accent-soft) !important;
-  }
-  
-  /* =====================================================
+
+.list-row-head,
+.result,
+.list-subject,
+.list-row-container,
+.standard-filter-section {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+/* Search/filter inputs */
+.page-head input,
+.page-head select,
+.page-head .form-control,
+.page-head .awesomplete input,
+.standard-filter-section input,
+.standard-filter-section .form-control,
+.form-control {
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+.page-head input::placeholder,
+.page-head .form-control::placeholder,
+.form-control::placeholder {
+  color: var(--text-soft) !important;
+}
+
+.page-head input:focus,
+.page-head .form-control:focus,
+.form-control:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-soft) !important;
+}
+
+/* =====================================================
      BUTTONS
      ===================================================== */
-  
-  .btn,
-  .btn-default,
-  .btn-primary,
-  .btn-secondary {
-    border-radius: 10px !important;
-    font-weight: 600 !important;
-    transition: var(--transition) !important;
-    box-shadow: none !important;
-  }
-  
-  .btn-primary {
-    background: var(--btn-dark) !important;
-    border: 1px solid var(--btn-dark) !important;
-    color: var(--btn-text) !important;
-  }
-  
-  .btn-primary:hover {
-    background: var(--btn-dark-hover) !important;
-    border-color: var(--btn-dark-hover) !important;
-    transform: translateY(-1px);
-  }
-  
-  .btn-default,
-  .btn-secondary {
-    background: #ffffff !important;
-    border: 1px solid var(--border) !important;
-    color: var(--text) !important;
-  }
-  
-  .btn-default:hover,
-  .btn-secondary:hover {
-    background: var(--surface-2) !important;
-    border-color: #d1d5db !important;
-  }
-  
-  /* Small icon buttons */
-  .btn.btn-sm,
-  .page-head .btn.btn-sm {
-    border-radius: 9px !important;
-  }
-  
-  /* =====================================================
+
+.btn,
+.btn-default,
+.btn-primary,
+.btn-secondary {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: var(--transition) !important;
+  box-shadow: none !important;
+}
+
+.btn-primary {
+  background: var(--btn-dark) !important;
+  border: 1px solid var(--btn-dark) !important;
+  color: var(--btn-text) !important;
+}
+
+.btn-primary:hover {
+  background: var(--btn-dark-hover) !important;
+  border-color: var(--btn-dark-hover) !important;
+  transform: translateY(-1px);
+}
+
+.btn-default,
+.btn-secondary {
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+
+.btn-default:hover,
+.btn-secondary:hover {
+  background: var(--surface-2) !important;
+  border-color: #d1d5db !important;
+}
+
+/* Small icon buttons */
+.btn.btn-sm,
+.page-head .btn.btn-sm {
+  border-radius: 9px !important;
+}
+
+/* =====================================================
      CARDS / PANELS
      ===================================================== */
-  
-  .card,
-  .widget,
-  .form-section,
-  .layout-side-section,
-  .frappe-card {
-    background: var(--surface) !important;
-    border: 1px solid var(--border-soft) !important;
-    border-radius: var(--radius) !important;
-    box-shadow: var(--shadow-sm) !important;
-  }
-  
-  /* =====================================================
+
+.card,
+.widget,
+.form-section,
+.layout-side-section,
+.frappe-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* =====================================================
      SIDEBAR
      ===================================================== */
-  
-  .layout-side-section {
-    padding-top: 8px;
-  }
-  
-  .layout-side-section .sidebar-menu a,
-  .standard-sidebar .sidebar-item-container a {
-    margin: 4px 8px !important;
-    padding: 10px 12px !important;
-    border-radius: 10px !important;
-    color: var(--text) !important;
-    transition: var(--transition) !important;
-  }
-  
-  .layout-side-section .sidebar-menu a:hover,
-  .standard-sidebar .sidebar-item-container a:hover {
-    background: var(--surface-2) !important;
-  }
-  
-  .layout-side-section .sidebar-menu a.active,
-  .layout-side-section .sidebar-menu a.router-link-active,
-  .standard-sidebar .sidebar-item-container.selected a {
-    background: var(--btn-dark) !important;
-    color: #ffffff !important;
-  }
-  
-  /* =====================================================
+
+.layout-side-section {
+  padding-top: 8px;
+}
+
+.layout-side-section .sidebar-menu a,
+.standard-sidebar .sidebar-item-container a {
+  margin: 4px 8px !important;
+  padding: 10px 12px !important;
+  border-radius: 10px !important;
+  color: var(--text) !important;
+  transition: var(--transition) !important;
+}
+
+.layout-side-section .sidebar-menu a:hover,
+.standard-sidebar .sidebar-item-container a:hover {
+  background: var(--surface-2) !important;
+}
+
+.layout-side-section .sidebar-menu a.active,
+.layout-side-section .sidebar-menu a.router-link-active,
+.standard-sidebar .sidebar-item-container.selected a {
+  background: var(--btn-dark) !important;
+  color: #ffffff !important;
+}
+
+/* =====================================================
      TABLES / LIST VIEW
      ===================================================== */
-  
-  .table,
-  .list-row,
-  .list-row-head,
-  .grid-heading-row {
-    background: #ffffff !important;
-  }
-  
-  .table {
-    border-radius: 12px !important;
-    overflow: visible !important;
-  }
-  
-  .table thead,
-  .grid-heading-row {
-    background: #f8fafc !important;
-  }
-  
-  .table th,
-  .grid-heading-row .data-row .row-index,
-  .grid-heading-row .grid-static-col {
-    color: var(--text-soft) !important;
-    font-weight: 600 !important;
-  }
-  
-  .table td,
-  .list-row-col,
-  .list-subject a,
-  .list-row a {
-    color: var(--text) !important;
-  }
-  
-  /* Zebra / hover */
-  .list-row:hover,
-  .table tbody tr:hover {
-    background: #f9fbff !important;
-  }
-  
-  /* =====================================================
+
+.table,
+.list-row,
+.list-row-head,
+.grid-heading-row {
+  background: #ffffff !important;
+}
+
+.table {
+  border-radius: 12px !important;
+  overflow: visible !important;
+}
+
+.table thead,
+.grid-heading-row {
+  background: #f8fafc !important;
+}
+
+.table th,
+.grid-heading-row .data-row .row-index,
+.grid-heading-row .grid-static-col {
+  color: var(--text-soft) !important;
+  font-weight: 600 !important;
+}
+
+.table td,
+.list-row-col,
+.list-subject a,
+.list-row a {
+  color: var(--text) !important;
+}
+
+/* Zebra / hover */
+.list-row:hover,
+.table tbody tr:hover {
+  background: #f9fbff !important;
+}
+
+/* =====================================================
      DROPDOWNS
      This is where your disappearing values usually happen
      ===================================================== */
-  
-  .dropdown-menu,
-  ul.dropdown-menu,
-  div[role="menu"],
-  .awesomplete > ul {
-    background: #ffffff !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 12px !important;
-    box-shadow: var(--shadow) !important;
-    padding: 6px 0 !important;
-    color: var(--text) !important;
-    z-index: 1000 !important;
-  }
-  
-  /* IMPORTANT: force readable text inside dropdowns */
-  .dropdown-menu *,
-  .dropdown-menu a,
-  .dropdown-menu .dropdown-item,
-  .dropdown-menu .menu-item-label,
-  .dropdown-menu li,
-  .dropdown-menu span,
-  .dropdown-menu button,
-  div[role="menu"] *,
-  .awesomplete > ul * {
-    color: var(--text) !important;
-    background: transparent !important;
-    opacity: 1 !important;
-  }
-  
-  .dropdown-menu .dropdown-item:hover,
-  .dropdown-menu a:hover,
-  .dropdown-menu button:hover,
-  div[role="menu"] a:hover,
-  .awesomplete > ul > li:hover,
-  .awesomplete > ul > li[aria-selected="true"] {
-    background: #f3f6fb !important;
-    color: var(--text) !important;
-  }
-  
-  .dropdown-divider {
-    border-color: var(--border-soft) !important;
-  }
-  
-  /* =====================================================
+
+.dropdown-menu,
+ul.dropdown-menu,
+div[role="menu"],
+.awesomplete>ul {
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow) !important;
+  padding: 6px 0 !important;
+  color: var(--text) !important;
+  z-index: 1000 !important;
+}
+
+/* IMPORTANT: force readable text inside dropdowns */
+.dropdown-menu *,
+.dropdown-menu a,
+.dropdown-menu .dropdown-item,
+.dropdown-menu .menu-item-label,
+.dropdown-menu li,
+.dropdown-menu span,
+.dropdown-menu button,
+div[role="menu"] *,
+.awesomplete>ul * {
+  color: var(--text) !important;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu a:hover,
+.dropdown-menu button:hover,
+div[role="menu"] a:hover,
+.awesomplete>ul>li:hover,
+.awesomplete>ul>li[aria-selected="true"] {
+  background: #f3f6fb !important;
+  color: var(--text) !important;
+}
+
+.dropdown-divider {
+  border-color: var(--border-soft) !important;
+}
+
+/* =====================================================
      MODALS / DIALOGS
      ===================================================== */
-  
-  .modal-content,
-  .form-dialog .modal-content,
-  .msg-box,
-  .dialog {
-    background: #ffffff !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 16px !important;
-    box-shadow: var(--shadow-lg) !important;
-    color: var(--text) !important;
-  }
-  
-  .modal-header,
-  .modal-footer {
-    border-color: var(--border-soft) !important;
-  }
-  
-  .modal-title,
-  .modal label,
-  .modal .control-label,
-  .modal .form-control,
-  .modal input,
-  .modal select,
-  .modal textarea {
-    color: var(--text) !important;
-  }
-  
-  /* =====================================================
+
+.modal-content,
+.form-dialog .modal-content,
+.msg-box,
+.dialog {
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: var(--text) !important;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--border-soft) !important;
+}
+
+.modal-title,
+.modal label,
+.modal .control-label,
+.modal .form-control,
+.modal input,
+.modal select,
+.modal textarea {
+  color: var(--text) !important;
+}
+
+/* =====================================================
      TAGS / PILLS / INDICATORS
      ===================================================== */
-  
-  .indicator,
-  .filter-pill,
-  .list-count,
-  .badge {
-    border-radius: 999px !important;
-    font-weight: 600 !important;
-  }
-  
-  /* =====================================================
+
+.indicator,
+.filter-pill,
+.list-count,
+.badge {
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+}
+
+/* =====================================================
      LINKS
      ===================================================== */
-  
-  a {
-    color: var(--accent) !important;
-  }
-  
-  a:hover {
-    opacity: 0.9;
-    text-decoration: none !important;
-  }
-  
-  /* =====================================================
+
+a {
+  color: var(--accent) !important;
+}
+
+a:hover {
+  opacity: 0.9;
+  text-decoration: none !important;
+}
+
+/* =====================================================
      GRID / LINK FIELD / AWESOMPLETE
      ===================================================== */
-  
-  .form-grid,
-  .grid-form,
-  .grid-body,
-  .grid-row,
-  .frappe-control {
-    overflow: visible !important;
-  }
-  
-  .awesomplete > ul {
-    max-height: 280px !important;
-    overflow-y: auto !important;
-  }
-  
-  /* =====================================================
+
+.form-grid,
+.grid-form,
+.grid-body,
+.grid-row,
+.frappe-control {
+  overflow: visible !important;
+}
+
+.awesomplete>ul {
+  max-height: 280px !important;
+  overflow-y: auto !important;
+}
+
+/* =====================================================
      SCROLLBAR
      ===================================================== */
-  
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #edf2f7;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 20px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-  }
-  
-  /* =====================================================
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf2f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =====================================================
      FIXES FOR DARK TEXT DISAPPEARING
      Do NOT force all page-head text to white
      ===================================================== */
-  
-  /* Reset overly broad inherited white text */
-  .page-head *,
-  .form-head *,
-  .standard-filter-section * {
-    text-shadow: none !important;
-  }
-  
-  /* Keep only top navbar white */
-  .navbar *,
-  .header * {
-    color: rgba(255, 255, 255, 0.95);
-  }
-  
-  /* But dropdowns opened from navbar/page-head must stay dark */
-  .navbar .dropdown-menu *,
-  .header .dropdown-menu *,
-  .page-head .dropdown-menu *,
-  .form-head .dropdown-menu * {
-    color: var(--text) !important;
-  }
-  
-  /* Selected values, filters, counters */
-  .page-head .selected-value,
-  .page-head .filterable,
-  .page-head .value,
-  .page-head .control-value,
-  .page-head .like-disabled-input,
-  .page-head .multiselect__single,
-  .page-head .indicator-pill {
-    color: var(--text) !important;
-  }
-  
-  /* Muted labels should still be visible */
-  .page-head .text-muted,
-  .page-head .text-extra-muted,
-  .form-head .text-muted {
-    color: var(--text-soft) !important;
-  }
+
+/* Reset overly broad inherited white text */
+.page-head *,
+.form-head *,
+.standard-filter-section * {
+  text-shadow: none !important;
+}
+
+/* Keep only top navbar white */
+.navbar *,
+.header * {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* But dropdowns opened from navbar/page-head must stay dark */
+.navbar .dropdown-menu *,
+.header .dropdown-menu *,
+.page-head .dropdown-menu *,
+.form-head .dropdown-menu * {
+  color: var(--text) !important;
+}
+
+/* Selected values, filters, counters */
+.page-head .selected-value,
+.page-head .filterable,
+.page-head .value,
+.page-head .control-value,
+.page-head .like-disabled-input,
+.page-head .multiselect__single,
+.page-head .indicator-pill {
+  color: var(--text) !important;
+}
+
+/* Muted labels should still be visible */
+.page-head .text-muted,
+.page-head .text-extra-muted,
+.form-head .text-muted {
+  color: var(--text-soft) !important;
+}
+
+/* =====================================================
+   FORM TABS (BEAUTIFUL PILL STYLE, NO SCROLL)ddd
+   ===================================================== */
+
+/* Remove horizontal scroll and allow wrapping */
+.form-tabs-list .nav.nav-pills,
+.form-tabs-list .nav.nav-tabs {
+  flex-wrap: wrap !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  border-bottom: none !important;
+  gap: 10px !important;
+  padding-bottom: 12px !important;
+  display: flex !important;
+}
+
+/* Hide scroll arrows if they are generated by a script */
+.form-tabs-list .scroll-left,
+.form-tabs-list .scroll-right {
+  display: none !important;
+}
+
+/* Individual tab styling */
+.form-tabs-list .nav>li>a {
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 50px !important;
+  /* Full pill shape */
+  background: var(--surface-2) !important;
+  color: var(--text-soft) !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Hover effect */
+.form-tabs-list .nav>li>a:hover {
+  background: #f1f5f9 !important;
+  color: var(--text) !important;
+  border-color: #cbd5e1 !important;
+  transform: translateY(-2px);
+}
+
+/* Active state (matching the gradient Save button from screenshot) */
+.form-tabs-list .nav>li>a.active,
+.form-tabs-list .nav>li.active>a {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Adjust tab container margins */
+.form-tabs-list {
+  margin-bottom: 15px !important;
+  border-bottom: 1px solid var(--border-soft) !important;
+  padding-bottom: 12px !important;
+  padding-top: 4px !important;
+  z-index: 1 !important;
+}
+
+/* Make sure inner tab icons are colored properly if they exist */
+.form-tabs-list .nav>li>a .icon {
+  width: 14px;
+  height: 14px;
+  fill: var(--text-soft);
+  transition: fill 0.25s !important;
+}
+
+.form-tabs-list .nav>li>a.active .icon,
+.form-tabs-list .nav>li.active>a .icon {
+  fill: #ffffff !important;
+}
